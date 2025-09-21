@@ -319,10 +319,10 @@ function initContact(){
   });
 }
 
-/* PWA service worker register */
-if('serviceWorker' in navigator){
-  window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    const swUrl = new URL('./sw.js', window.location.href);
+    navigator.serviceWorker.register(swUrl, { scope: './' }).catch(console.error);
   });
 }
 
