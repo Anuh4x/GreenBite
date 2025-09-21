@@ -1,3 +1,4 @@
+
 :root{
   --shadow:0 8px 30px rgba(0,0,0,.35);
 
@@ -16,6 +17,7 @@
   --glass-border:rgba(255,255,255,0.3);
 }
 
+
 *{
    box-sizing:border-box; 
   }
@@ -33,15 +35,14 @@ body{
   background-attachment:fixed;
   background-position:center;
   line-height:1.6;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
 }
 
 img{ 
   max-width:100%; 
   display:block;
   border-radius:.8rem; 
+}main {
+  flex: 1;
 }
 
 a{
@@ -365,40 +366,43 @@ input,select,textarea{
   box-shadow: 0 4px 16px rgba(53,141,55,0.10);
 }
 
+/* Recipe filters */
 .recipe-filters{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
-  gap:.6rem;                     
-  justify-items:stretch;         
-  align-items:stretch;
-  margin-bottom:1.25rem;
+  display:flex;
+  flex-wrap:wrap;                 
+  gap:.6rem .8rem;                
+  justify-content:center;
+  margin-bottom:clamp(1rem, 3vw, 2rem);
 }
 
 .filter-btn{
-  width:100%;                   
   background:var(--glass);
   color:var(--text);
   border:1px solid var(--glass-border);
   backdrop-filter:blur(80px);
   -webkit-backdrop-filter:blur(80px);
   border-radius:999px;
-  padding:.65rem .9rem;          
-  font-size:1rem;
-  font-weight:600;
+  padding:clamp(.55rem, 1.8vw, .7rem) clamp(1rem, 3vw, 2rem);
+  font-size:clamp(.95rem, 2.2vw, 1.1rem);
+  font-weight:500;
   line-height:1.1;
   box-shadow:0 2px 8px rgba(0,0,0,.04);
   cursor:pointer;
   transition:background .2s, color .2s, transform .08s ease;
-  text-align:center;
-  white-space:nowrap;       
+  white-space:nowrap;             
+
+.filter-btn:active{ transform:scale(.98); }
+
+.filter-btn.active{
+  background:var(--accent);
+  color:#fff;
+}
+.filter-btn:hover:not(.active){
+  background:var(--glass-strong);
 }
 
-.filter-btn:active{
-   transform:scale(.98); 
-  }
-.filter-btn.active{
-   background:var(--accent); 
-   color:#fff; 
-  }
-.filter-btn:hover:not(.active){
-  background:var(--glass-strong); }
+@media (max-width:800px){
+  .filter-btn{ padding:.6rem 1.2rem; }
+}
+
+}
