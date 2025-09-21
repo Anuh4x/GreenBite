@@ -1,3 +1,4 @@
+
 /* Tiny helpers */
 const qs = (s, el=document) => el.querySelector(s);
 const qsa = (s, el=document) => [...el.querySelectorAll(s)];
@@ -165,23 +166,38 @@ function initWorkouts(){
   });
 }
 
-  /* Ambient sounds with WebAudio oscillators */
-  let ctx, oscs=[];
-  function togglePad(freq){
-    ctx = ctx || new (window.AudioContext||window.webkitAudioContext)();
-    const existing = oscs.find(o=>o._f===freq);
-    if(existing){ existing.stop(); oscs = oscs.filter(o=>o!==existing); return; }
-    const o = ctx.createOscillator(); const g = ctx.createGain();
-    o.type='sine'; o.frequency.value=freq; g.gain.value=.02; o.connect(g); g.connect(ctx.destination); o.start();
-    o._f=freq; oscs.push(o);
+// Ambient sound player for mindfulness page
+const ambientSounds = {
+  rain: 'Rain.mp3' 
+};
+
+let currentAudio = null;
+function playAmbient(key) {
+  if(currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
+  const src = ambientSounds[key];
+  if(src) {
+    currentAudio = new Audio(src);
+    currentAudio.loop = true;
+    currentAudio.volume = 0.5;
+    currentAudio.play();
+    // Mark button active
+    qsa('.sound-btn').forEach(btn => btn.classList.remove('active'));
+    const btn = qs(`#sound-${key}`);
+    if(btn) btn.classList.add('active');
   }
-  on(qs('#pad1'),'click', ()=>togglePad(174));
-  on(qs('#pad2'),'click', ()=>togglePad(396));
-  on(qs('#pad3'),'click', ()=>togglePad(528));
+}
+function stopAmbient() {
+  if(currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
+  qsa('.sound-btn').forEach(btn => btn.classList.remove('active'));
+}
 
-  const sessionsEl = qs('#sessions');
-  if(sessionsEl) sessionsEl.textContent = load('gb_sessions',0) || 0;
-
+on(window, 'DOMContentLoaded', () => {
+  if(qs('#mind-page')) {
+    on(qs('#sound-rain'), 'click', () => playAmbient('rain'));
+    // Stop sound if user leaves page
+    window.addEventListener('beforeunload', stopAmbient);
+  }
+});
   /* Mindfulness page logic */
   function initMind(){
     if(!qs('#mind-page')) return;
