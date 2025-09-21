@@ -341,11 +341,11 @@ input,select,textarea{
 }
 
 .sound-btn {
-
+  min-width: 160px;
+  min-height: 80px;
   font-size: 1.1rem;
-  font-weight: 200;
-  padding:.7rem 1rem;
-  border-radius:.8rem;
+  font-weight: 500;
+  border-radius: 16px;
   border:var(--glass-border);
   background:linear-gradient(135deg,rgba(255,255,255,0.25) 0%,rgba(255,255,255,0.1) 100%);
   color: #222;

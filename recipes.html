@@ -1,18 +1,18 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/logo.png">
   <link rel="stylesheet" href="styles.css">
-  <title>GreenBite</title>
+  <title>GreenBite – Recipes</title>
 </head>
 <body>
+
 <header>
   <div class="container nav">
     <a href="index.html" class="brand">
-      <img src="assets/logo.png" alt="GreenBite logo"><b>Green<span style="color:var(--accent)">Bite</span></b>
+      <img src="Logo.png" alt="GreenBite logo">
+      <b>Green<span style="color:var(--accent)">Bite</span></b>
     </a>
     <button id="burger" class="burger">☰</button>
     <nav id="menu" class="menu">
@@ -29,23 +29,189 @@
 <main class="container">
   <section class="section">
     <h1>Healthy Recipes</h1>
-    <div class="form-row">
-      <input id="q" placeholder="Search by name...">
-      <select id="cat">
-        <option value="all">All categories</option>
-        <option>Breakfast</option><option>Lunch</option><option>Snack</option>
-      </select>
+
+    <div class="grid">
+
+      <!-- Avocado Toast -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?q=80&w=1170&auto=format&fit=crop" alt="Avocado Toast">
+        <h3>Avocado Toast</h3>
+        <p class="muted">Wholegrain toast topped with smashed avocado, lemon and chili flakes.</p>
+        <span class="badge">Breakfast</span>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 slices wholegrain bread</li>
+          <li>1 ripe avocado</li>
+          <li>1 tsp lemon juice</li>
+          <li>Chili flakes</li>
+          <li>Salt & pepper</li>
+        </ul>
+
+        <h4>Steps</h4>
+        <ol>
+          <li>Toast the bread.</li>
+          <li>Mash the avocado with lemon, salt and pepper.</li>
+          <li>Spread on toast and sprinkle chili flakes.</li>
+        </ol>
+
+        <h4>Nutrition (per serving)</h4>
+        <table>
+          <tr><th>Calories</th><th>Carbs</th><th>Protein</th><th>Fat</th></tr>
+          <tr><td>320</td><td>30 g</td><td>8 g</td><td>18 g</td></tr>
+        </table>
+      </article>
+
+      <!-- Quinoa Salad Bowl -->
+      <article class="card">
+        <img src="https://plus.unsplash.com/premium_photo-1705003210245-41b4773b5bb5?q=80&w=1076&auto=format&fit=crop" alt="Quinoa Salad Bowl">
+        <h3>Quinoa Salad Bowl</h3>
+        <p class="muted">Colorful bowl with quinoa, chickpeas, cucumber, tomato and tahini.</p>
+        <span class="badge">Lunch</span>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 cup cooked quinoa</li>
+          <li>1/2 cup chickpeas</li>
+          <li>Cucumber</li>
+          <li>Tomatoes</li>
+          <li>2 tbsp tahini</li>
+          <li>Lemon juice</li>
+        </ul>
+
+        <h4>Steps</h4>
+        <ol>
+          <li>Combine quinoa and veggies.</li>
+          <li>Whisk tahini with lemon and a little water.</li>
+          <li>Drizzle dressing and toss.</li>
+        </ol>
+
+        <h4>Nutrition (per serving)</h4>
+        <table>
+          <tr><th>Calories</th><th>Carbs</th><th>Protein</th><th>Fat</th></tr>
+          <tr><td>420</td><td>55 g</td><td>18 g</td><td>12 g</td></tr>
+        </table>
+      </article>
+
+      <!-- Berry Yogurt Parfait -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1723491922263-190acbde53d9?q=80&w=1074&auto=format&fit=crop" alt="Berry Yogurt Parfait">
+        <h3>Berry Yogurt Parfait</h3>
+        <p class="muted">Layers of Greek yogurt, berries and crunchy granola.</p>
+        <span class="badge">Snack</span>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 cup Greek yogurt</li>
+          <li>1/2 cup mixed berries</li>
+          <li>1/4 cup granola</li>
+          <li>Honey (optional)</li>
+        </ul>
+
+        <h4>Steps</h4>
+        <ol>
+          <li>Layer yogurt, berries, and granola in a glass.</li>
+          <li>Finish with a drizzle of honey.</li>
+        </ol>
+
+        <h4>Nutrition (per serving)</h4>
+        <table>
+          <tr><th>Calories</th><th>Carbs</th><th>Protein</th><th>Fat</th></tr>
+          <tr><td>260</td><td>36 g</td><td>16 g</td><td>6 g</td></tr>
+        </table>
+      </article>
+
+      <!--Veggie Stir Fry -->
+      <article class="card">
+        <img src="https://mccormick.widen.net/content/d6oqd1m7en/jpeg/stir-fry-vegetables-recipe-1376x774.jpeg" alt="Veggie Stir Fry">
+        <h3>Veggie Stir Fry</h3>
+        <p class="muted">Mixed seasonal vegetables quickly sautéed with light soy sauce and garlic.</p>
+        <span class="badge">Dinner</span>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <li>2 cups mixed vegetables (broccoli, carrots, peppers)</li>
+          <li>2 cloves garlic, minced</li>
+          <li>1 tbsp olive oil</li>
+          <li>2 tbsp light soy sauce</li>
+        </ul>
+
+        <h4>Steps</h4>
+        <ol>
+          <li>Heat oil in a wok or pan.</li>
+          <li>Add garlic and vegetables; stir-fry 4–5 minutes.</li>
+          <li>Add soy sauce and toss to coat. Serve warm.</li>
+        </ol>
+
+        <h4>Nutrition (per serving)</h4>
+        <table>
+          <tr><th>Calories</th><th>Carbs</th><th>Protein</th><th>Fat</th></tr>
+          <tr><td>180</td><td>20 g</td><td>6 g</td><td>7 g</td></tr>
+        </table>
+      </article>
+
+      <!--Fruit Smoothie -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?q=80&w=1171&auto=format&fit=crop" alt="Fruit Smoothie">
+        <h3>Fruit Smoothie</h3>
+        <p class="muted">Refreshing smoothie with banana, berries and yogurt.</p>
+        <span class="badge">Drink</span>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 banana</li>
+          <li>1/2 cup mixed berries</li>
+          <li>1/2 cup Greek yogurt</li>
+          <li>1/2 cup milk or almond milk</li>
+        </ul>
+
+        <h4>Steps</h4>
+        <ol>
+          <li>Place all ingredients in a blender.</li>
+          <li>Blend until smooth and creamy.</li>
+          <li>Pour into a glass and enjoy.</li>
+        </ol>
+
+        <h4>Nutrition (per serving)</h4>
+        <table>
+          <tr><th>Calories</th><th>Carbs</th><th>Protein</th><th>Fat</th></tr>
+          <tr><td>220</td><td>38 g</td><td>9 g</td><td>3 g</td></tr>
+        </table>
+      </article>
+
+      <!--Chickpea Curry -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1582576163090-09d3b6f8a969?q=80&w=1171&auto=format&fit=crop" alt="Chickpea Curry">
+        <h3>Chickpea Curry</h3>
+        <p class="muted">Hearty and protein-rich curry with chickpeas and tomatoes.</p>
+        <span class="badge">Dinner</span>
+
+        <h4>Ingredients</h4>
+        <ul>
+          <li>1 can chickpeas, drained</li>
+          <li>1 cup diced tomatoes</li>
+          <li>1 onion, chopped</li>
+          <li>2 cloves garlic, minced</li>
+          <li>1 tsp curry powder</li>
+        </ul>
+
+        <h4>Steps</h4>
+        <ol>
+          <li>Sauté onion and garlic in a little oil until soft.</li>
+          <li>Add curry powder and cook 1 minute.</li>
+          <li>Add chickpeas and tomatoes; simmer 15 minutes.</li>
+        </ol>
+
+        <h4>Nutrition (per serving)</h4>
+        <table>
+          <tr><th>Calories</th><th>Carbs</th><th>Protein</th><th>Fat</th></tr>
+          <tr><td>300</td><td>40 g</td><td>14 g</td><td>6 g</td></tr>
+        </table>
+      </article>
+
     </div>
-    <div id="recipes" class="grid" aria-live="polite"></div>
   </section>
 </main>
-
-<div id="recipe-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="r-title">
-  <div class="panel">
-    <button id="close-modal" class="close" aria-label="Close">✕</button>
-    <div id="recipe-body"></div>
-  </div>
-</div>
 
 <footer>
   <div class="container">
@@ -64,7 +230,7 @@
     <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
   </div>
 </footer>
-<script src="app.js"></script>
-<script src="recipes.js"></script>
+
+<script src="app.js"></script> 
 </body>
 </html>
