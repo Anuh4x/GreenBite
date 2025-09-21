@@ -1,8 +1,7 @@
-
 :root{
   --shadow:0 8px 30px rgba(0,0,0,.35);
 
-  /* Coors */
+  /* Colors */
 --text:        #EAE7E1;
 --text-muted:  #B8AFA3; 
 --heading:     #F5F0E7;
@@ -26,6 +25,10 @@ html{
    scroll-behavior:smooth; 
   }
 
+html, body {
+  height: 100%;
+}
+
 body{
   margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
@@ -35,6 +38,8 @@ body{
   background-attachment:fixed;
   background-position:center;
   line-height:1.6;
+  min-height: 100vh;   
+  min-height: 100dvh;  
 }
 
 img{ 
@@ -160,9 +165,15 @@ header{
   color:var(--heading);
 }
 
-.hero p{ color:var(--text-muted); }
+.hero p{
+   color:var(--text-muted); 
+  }
 
-.hero .cta{ display:flex; gap:.8rem; margin-top:1rem; }
+.hero .cta{
+   display:flex; 
+   gap:.8rem; 
+   margin-top:1rem; 
+  }
 
 .btn{
   background:var(--accent);
@@ -214,7 +225,10 @@ header{
   color:var(--text);
 }
 
-.card h3{ margin:.4rem 0; color:var(--heading); }
+.card h3{
+   margin:.4rem 0; 
+   color:var(--heading); 
+  }
 
 /* Badge */
 .badge{
@@ -232,6 +246,8 @@ footer{
   background:#0b2d1a;
   color:#d8f5e3;
   margin-top:3rem;
+  position: sticky;
+  top: 100svh; 
 }
 
 footer form{ display:flex; gap:.3em; flex-wrap:wrap; }
@@ -247,9 +263,17 @@ footer input{
 }
 
 /* Utilities */
-.center{ text-align:center; }
-.muted{ color:var(--text-muted); }
-.hidden{ display:none !important; }
+.center{
+   text-align:center; 
+  }
+
+.muted{
+   color:var(--text-muted); 
+  }
+
+.hidden{
+   display:none !important; 
+  }
 
 /* Modal */
 .modal{
@@ -264,7 +288,11 @@ footer input{
   pointer-events:none;
   transition:.2s;
 }
-.modal.open{ opacity:1; pointer-events:auto; }
+
+.modal.open{
+   opacity:1; 
+   pointer-events:auto; 
+  }
 
 .modal .panel{
   max-width:900px; width:100%;
@@ -289,11 +317,23 @@ footer input{
   }
 
 /* Tables */
-table{ width:100%; border-collapse:collapse; }
-th,td{ border:1px solid #e6e6e6; padding:.5rem; text-align:left; }
+table{
+   width:100%; 
+   border-collapse:collapse; 
+  }
+
+th,td{
+   border:1px solid #e6e6e6; 
+   padding:.5rem; 
+   text-align:left; 
+  }
 
 /* Forms */
-label{ display:block; margin:.6rem 0 .2rem; }
+label{
+   display:block; 
+   margin:.6rem 0 .2rem; 
+  }
+
 input,select,textarea{
   width:100%;
   padding:.6rem .7rem;
@@ -302,8 +342,16 @@ input,select,textarea{
   background:white;
 }
 
-.form-row{ display:grid; gap:1rem; grid-template-columns:repeat(2,1fr); }
-@media (max-width:700px){ .form-row{ grid-template-columns:1fr; } }
+.form-row{
+   display:grid; gap:1rem;
+   grid-template-columns:repeat(2,1fr); 
+  }
+
+@media (max-width:700px){
+   .form-row{
+     grid-template-columns:1fr; 
+    } 
+  }
 
 /* Progress */
 .progress{
@@ -317,8 +365,14 @@ input,select,textarea{
 }
 
 /* Animations */
-.reveal{ opacity:0; transform:translateY(20px); transition:.6s; }
-.reveal.visible{ opacity:1; transform:none; }
+.reveal{
+   opacity:0; transform:translateY(20px); 
+   transition:.6s; 
+  }
+.reveal.visible{
+  opacity:1; 
+  transform:none; 
+}
 
 .breathe{
   width:200px; height:200px; border-radius:50%;
@@ -326,7 +380,14 @@ input,select,textarea{
   background:radial-gradient(circle at 30% 30%, #c8f1d7, #a9e6c0);
   animation:breathe 8s infinite ease-in-out;
 }
-@keyframes breathe{ 0%,100%{ transform:scale(.8); } 50%{ transform:scale(1); } }
+
+@keyframes breathe{
+   0%,100%{ transform:scale(.8); 
+  } 
+  50%{
+     transform:scale(1); 
+    } 
+  }
 
 .timer{
    font-size:2rem; 
@@ -391,18 +452,47 @@ input,select,textarea{
   transition:background .2s, color .2s, transform .08s ease;
   white-space:nowrap;             
 
-.filter-btn:active{ transform:scale(.98); }
+ .filter-btn:active{ transform:scale(.98); }
 
-.filter-btn.active{
+ .filter-btn.active{
   background:var(--accent);
   color:#fff;
-}
+ }
 .filter-btn:hover:not(.active){
   background:var(--glass-strong);
-}
+ }
 
-@media (max-width:800px){
+ @media (max-width:800px){
   .filter-btn{ padding:.6rem 1.2rem; }
+ }
+
 }
 
+/* Recipe search bar */
+.recipe-search-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.search-bar::placeholder {
+  color: var(--text);
+  opacity: 1;
+}
+
+.search-bar {
+  background:var(--glass);
+  color: var(--text);
+  border:var(--glass-border);
+  border-radius: 999px;
+  padding: 0.7rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: background .2s, color .2s;
+  outline: none;
+  width: 550px;
+  max-width: 90vw;
+}
+.search-bar:focus {
+  background: var(--glass-strong);
 }

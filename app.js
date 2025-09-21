@@ -70,6 +70,24 @@ function initHome(){
 //Recipes Filter
 
 function initRecipeFilters() {
+  // Search bar logic
+  const searchInput = document.getElementById('recipe-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const query = searchInput.value.trim().toLowerCase();
+      cards.forEach(card => {
+        // Search in title, description, and ingredients
+        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+        const desc = card.querySelector('p.muted')?.textContent.toLowerCase() || '';
+        const ingredients = Array.from(card.querySelectorAll('ul li')).map(li => li.textContent.toLowerCase()).join(' ');
+        if (!query || title.includes(query) || desc.includes(query) || ingredients.includes(query)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.grid .card');
   if (!filterBtns.length || !cards.length) return;
