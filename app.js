@@ -301,3 +301,16 @@ function initContact(){
   });
 }
 
+/* PWA service worker register */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('/sw.js').catch(()=>{});
+  });
+}
+
+/* Page initializers */
+window.addEventListener('DOMContentLoaded', ()=>{
+  if(qs('#home-page')) initHome();
+  initCalc(); initWorkouts(); initMind(); initContact(); initRecipes();
+  if(qs('body') && qs('body').contains(qs('.recipe-filters'))) initRecipeFilters();
+});

@@ -1,31 +1,7 @@
-/* Recipe filters */
-.recipe-filters {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 2rem;
+main {
+  flex: 1;
 }
-.filter-btn {
-  background:var(--glass);
-  color: #222;
-  border: 1px solid var(--glass-border);
-  backdrop-filter:blur(80px);
-  -webkit-backdrop-filter:blur(80px);
-  border-radius: 999px;
-  padding: 0.7rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  cursor: pointer;
-  transition: background .2s, color .2s;
-}
-.filter-btn.active {
-  background: var(--accent);
-  color: #fff;
-}
-.filter-btn:hover:not(.active) {
-  background: var(--glass-strong);
-}
+
 :root{
   --shadow:0 8px 30px rgba(0,0,0,.35);
 
