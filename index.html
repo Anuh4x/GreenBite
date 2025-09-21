@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <link rel="manifest" href="./manifest.webmanifest">
 
@@ -16,83 +15,71 @@
   <link rel="stylesheet" href="styles.css">
   <title>GreenBite</title>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="Logo_original_high_quality.webp" alt="GreenBite logo"><b>Green<span
-            style="color:#cd5e04">Bite</span></b>
-      </a>
-      <button id="burger" class="burger">☰</button>
-      <nav id="menu" class="menu">
-        <a href="index.html">Home</a>
-        <a href="recipes.html">Recipes</a>
-        <a href="calculator.html">Calculator</a>
-        <a href="workouts.html">Workouts</a>
-        <a href="mindfulness.html">Mindfulness</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="Logo_original_high_quality.webp" alt="GreenBite logo"><b>Green<span style="color:#cd5e04">Bite</span></b>
+    </a>
+    <button id="burger" class="burger">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="mindfulness.html">Mindfulness</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main id="home-page" class="container">
-    <section class="hero">
+<main id="home-page" class="container">
+  <section class="hero">
+    <div>
+      <span class="badge">Healthy living</span>
+      <h1>Welcome to GreenBite</h1>
+      <p class="muted">Your simple guide to balanced meals, fun workouts and calm minds.</p>
+      <div class="cta">
+        <a class="btn" href="recipes.html">Explore Recipes</a>
+        <a class="btn ghost" href="calculator.html">Calorie Calculator</a>
+      </div>
+      <p style="margin-top:1rem"><b id="slogan"></b></p>
+    </div>
+    <img src="Logo_original_high_quality.webp" alt="GreenBite logo">
+  </section>
+
+  <section class="section">
+    <h2 class="reveal">Tip of the day</h2>
+    <p id="tip" class="card reveal"></p>
+  </section>
+
+  <section class="section">
+    <h2 class="reveal">Quick links</h2>
+    <div class="grid">
+      <a class="card reveal" href="recipes.html"><h3>Healthy Recipes</h3><p class="muted">Tasty, simple ideas.</p></a>
+      <a class="card reveal" href="workouts.html"><h3>Workout Generator</h3><p class="muted">No gym? No problem.</p></a>
+      <a class="card reveal" href="mindfulness.html"><h3>Mindfulness</h3><p class="muted">Breathe & reset.</p></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="form-row">
       <div>
-        <span class="badge">Healthy living</span>
-        <h1>Welcome to GreenBite</h1>
-        <p class="muted">Your simple guide to balanced meals, fun workouts and calm minds.</p>
-        <div class="cta">
-          <a class="btn" href="recipes.html">Explore Recipes</a>
-          <a class="btn ghost" href="calculator.html">Calorie Calculator</a>
-        </div>
-        <p style="margin-top:1rem"><b id="slogan"></b></p>
+        <h3>Join our newsletter</h3>
+        <p class="muted">Weekly tips for meals, movement and mindfulness.</p>
       </div>
-      <img src="Logo_original_high_quality.webp" alt="GreenBite logo">
-    </section>
-
-    <section class="section">
-      <h2 class="reveal">Tip of the day</h2>
-      <p id="tip" class="card reveal"></p>
-    </section>
-
-    <section class="section">
-      <h2 class="reveal">Quick links</h2>
-      <div class="grid">
-        <a class="card reveal" href="recipes.html">
-          <h3>Healthy Recipes</h3>
-          <p class="muted">Tasty, simple ideas.</p>
-        </a>
-        <a class="card reveal" href="workouts.html">
-          <h3>Workout Generator</h3>
-          <p class="muted">No gym? No problem.</p>
-        </a>
-        <a class="card reveal" href="mindfulness.html">
-          <h3>Mindfulness</h3>
-          <p class="muted">Breathe & reset.</p>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="form-row">
-        <div>
-          <h3>Join our newsletter</h3>
-          <p class="muted">Weekly tips for meals, movement and mindfulness.</p>
-        </div>
-        <form id="newsletter-form">
-          <input name="email" placeholder="you@example.com" aria-label="Email">
-          <button class="btn">Subscribe</button>
-        </form>
-      </div>
-      <small id="newsletter-msg"></small>
-      <p class="muted">© <span id="year"></span> GreenBite • Eat well, live well.</p>
-      <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+      <form id="newsletter-form">
+        <input name="email" placeholder="you@example.com" aria-label="Email">
+        <button class="btn">Subscribe</button>
+      </form>
     </div>
-  </footer>
-  <script src="app.js"></script>
+    <small id="newsletter-msg"></small>
+    <p class="muted">© <span id="year"></span> GreenBite • Eat well, live well.</p>
+    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  </div>
+</footer>
+<script src="app.js"></script>
 </body>
-
 </html>

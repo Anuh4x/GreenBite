@@ -1,5 +1,3 @@
-
-
 /* Tiny helpers */
 const qs = (s, el=document) => el.querySelector(s);
 const qsa = (s, el=document) => [...el.querySelectorAll(s)];
@@ -67,63 +65,6 @@ function initHome(){
   const tipEl = qs('#tip');
   if(tipEl) tipEl.textContent = tip;
 }
-//Recipes Filter
-
-function initRecipeFilters() {
-  // Search bar logic
-  const searchInput = document.getElementById('recipe-search');
-  if (searchInput) {
-    searchInput.addEventListener('input', function() {
-      const query = searchInput.value.trim().toLowerCase();
-      cards.forEach(card => {
-        // Search in title, description, and ingredients
-        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
-        const desc = card.querySelector('p.muted')?.textContent.toLowerCase() || '';
-        const ingredients = Array.from(card.querySelectorAll('ul li')).map(li => li.textContent.toLowerCase()).join(' ');
-        if (!query || title.includes(query) || desc.includes(query) || ingredients.includes(query)) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  }
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.grid .card');
-  if (!filterBtns.length || !cards.length) return;
-
-  filterBtns.forEach(btn => {
-    // ensure proper ARIA state
-    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
-
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed','true');
-
-      const filter = btn.dataset.filter.toLowerCase();
-
-      cards.forEach(card => {
-        if (filter === 'all') {
-          card.style.display = '';
-          return;
-        }
-        const badge = card.querySelector('.badge');
-        const badgeText = (badge ? badge.textContent : '').trim().toLowerCase();
-
-        // snacks should include both "snack" and "drink"
-        const match =
-          (filter === 'snacks' && (badgeText.includes('snack') || badgeText.includes('drink'))) ||
-          badgeText.includes(filter);
-
-        card.style.display = match ? '' : 'none';
-      });
-    });
-  });
-}
-
-// run it
-document.addEventListener('DOMContentLoaded', initRecipeFilters);
 
 /* Calculator */
 function initCalc(){
@@ -131,7 +72,6 @@ function initCalc(){
   if(!form) return;
   on(form,'submit', e=>{
     e.preventDefault();
-    // Debug: log form values
     console.log('Form values:', {
       age: form.age.value,
       gender: form.gender.value,
@@ -146,6 +86,7 @@ function initCalc(){
       alert('Please complete all fields');
       return;
     }
+
     // Calculation
     let bmr, tdee, carbs, protein, fat;
     if(g==='male'){
@@ -157,8 +98,8 @@ function initCalc(){
     carbs = (tdee*0.50)/4;
     protein = (tdee*0.20)/4;
     fat = (tdee*0.30)/9;
-    // Debug: log results
     console.log('Results:', {bmr, tdee, carbs, protein, fat});
+
     // Output
     if(qs('#bmr')) qs('#bmr').textContent = Math.round(bmr);
     if(qs('#tdee')) qs('#tdee').textContent = Math.round(tdee);
@@ -231,16 +172,21 @@ const ambientSounds = {
 
 let currentAudio = null;
 function playAmbient(key) {
-  if(currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; currentAudio = null; }
   const src = ambientSounds[key];
+  const btn = qs(`#sound-${key}`);
+  if (currentAudio && !currentAudio.paused) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    currentAudio = null;
+    if (btn) btn.classList.remove('active');
+    return;
+  }
   if(src) {
     currentAudio = new Audio(src);
     currentAudio.loop = true;
     currentAudio.volume = 0.5;
     currentAudio.play();
-    // Mark button active
     qsa('.sound-btn').forEach(btn => btn.classList.remove('active'));
-    const btn = qs(`#sound-${key}`);
     if(btn) btn.classList.add('active');
   }
 }
@@ -252,7 +198,6 @@ function stopAmbient() {
 on(window, 'DOMContentLoaded', () => {
   if(qs('#mind-page')) {
     on(qs('#sound-rain'), 'click', () => playAmbient('rain'));
-    // Stop sound if user leaves page
     window.addEventListener('beforeunload', stopAmbient);
   }
 });
@@ -287,6 +232,7 @@ on(window, 'DOMContentLoaded', () => {
       clearInterval(timer); timer=null; time=300; update();
     });
     update();
+
     // Session counter
     let sessions = load('gb_sessions',0) || 0;
     function completeSession(){
@@ -295,7 +241,6 @@ on(window, 'DOMContentLoaded', () => {
       const sessionsEl = qs('#sessions');
       if(sessionsEl) sessionsEl.textContent = sessions;
     }
-    // Mark session complete when timer hits 0
     setInterval(()=>{ if(time===0 && running){ completeSession(); running=false; } },1000);
   }
 
