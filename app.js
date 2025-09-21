@@ -7,11 +7,11 @@ const load = (k, d=null)=>JSON.parse(localStorage.getItem(k)||JSON.stringify(d))
 
 /* Nav burger */
 on(window,'DOMContentLoaded', () => {
-  const burger = qs('#burger');
-  const menu = qs('#menu');
+  const burger = qs('.burger');
+  const menu = qs('.menu');
   if(burger && menu){
     on(burger,'click', ()=> menu.classList.toggle('open'));
-    qsa('#menu a').forEach(a=> on(a,'click', ()=> menu.classList.remove('open')));
+    qsa('.menu a').forEach(a=> on(a,'click', ()=> menu.classList.remove('open')));
   }
 
   /* Scroll reveal */

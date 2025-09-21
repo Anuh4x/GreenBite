@@ -1,12 +1,4 @@
-/* -------------------------------------------------------
-   GreenBite Recipes Page (data-driven)
-   - Reads data from window.RECIPES (recipes.data.js)
-   - Search by name + filter by category
-   - Modal with UL ingredients, OL steps, and TABLE nutrition
-   - Keeps your glassmorphism theme
----------------------------------------------------------*/
 
-// A safe SVG placeholder (used ONLY if a recipe has no image set)
 function placeholder(title) {
   const svg =
     `<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="680">
