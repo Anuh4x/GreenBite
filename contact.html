@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="Logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>GreenBite</title>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="Logo.png" alt="GreenBite logo"><b>Green<span style="color:var(--accent)">Bite</span></b>
+    </a>
+    <button id="burger" class="burger">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="mindfulness.html">Mindfulness</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <h1>Contact & Feedback</h1>
+    <form id="contact-form" class="card">
+      <div class="form-row">
+        <div><label>Name</label><input name="name" required></div>
+        <div><label>Email</label><input name="email" type="email" required></div>
+      </div>
+      <label>Message</label>
+      <textarea name="message" rows="5" required></textarea>
+      <button class="btn" style="margin-top:1rem">Send</button>
+      <p id="confirm" class="muted"></p>
+    </form>
+  </section>
+
+  <section class="section grid">
+    <div class="card">
+      <h3>GreenBite HQ</h3>
+      <iframe title="Map" width="100%" height="250" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+  src="https://www.openstreetmap.org/export/embed.html?bbox=79.855,6.910,79.865,6.920&layer=mapnik&marker=6.914,79.860"></iframe>
+    </div>
+    <div class="card faq">
+      <h3>FAQ</h3>
+      <details><summary>Is this site free?</summary><p>Yes, everything here is free to use for learning.</p></details>
+      <details><summary>Do you store my data?</summary><p>Only in your browser (localStorage) for demo purposes.</p></details>
+      <details><summary>Can I use the recipes?</summary><p>Of course! Adapt them to your taste and diet.</p></details>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container">
+    <div class="form-row">
+      <div>
+        <h3>Join our newsletter</h3>
+        <p class="muted">Weekly tips for meals, movement and mindfulness.</p>
+      </div>
+      <form id="newsletter-form">
+        <input name="email" placeholder="you@example.com" aria-label="Email">
+        <button class="btn">Subscribe</button>
+      </form>
+    </div>
+    <small id="newsletter-msg"></small>
+    <p class="muted">© <span id="year"></span> GreenBite • Eat well, live well.</p>
+    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

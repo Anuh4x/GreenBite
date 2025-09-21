@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="Logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>GreenBite</title>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a href="index.html" class="brand">
+      <img src="Logo.png" alt="GreenBite logo"><b>Green<span style="color:var(--accent)">Bite</span></b>
+    </a>
+    <button id="burger" class="burger">☰</button>
+    <nav id="menu" class="menu">
+      <a href="index.html">Home</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="mindfulness.html">Mindfulness</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="section">
+    <h1>Workout Generator</h1>
+    <form id="workout-form" class="card">
+      <div class="form-row">
+        <div><label>Body part</label>
+          <select id="body">
+            <option value="any">Any</option>
+            <option value="arms">Arms/Upper</option>
+            <option value="legs">Legs/Lower</option>
+            <option value="full">Full body</option>
+          </select>
+        </div>
+        <div><label>Equipment</label>
+          <select id="equip">
+            <option value="any">Any</option>
+            <option value="none">None</option>
+            <option value="dumbbells">Dumbbells</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn" style="margin-top:1rem">Generate Plan</button>
+    </form>
+
+    <ol id="plan" class="card reveal" style="min-height:60px"></ol>
+
+    <div class="card">
+      <button id="start-timer" class="btn secondary">Start Countdown</button>
+      <p id="wk-timer" class="timer">Ready</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="container">
+    <div class="form-row">
+      <div>
+        <h3>Join our newsletter</h3>
+        <p class="muted">Weekly tips for meals, movement and mindfulness.</p>
+      </div>
+      <form id="newsletter-form">
+        <input name="email" placeholder="you@example.com" aria-label="Email">
+        <button class="btn">Subscribe</button>
+      </form>
+    </div>
+    <small id="newsletter-msg"></small>
+    <p class="muted">© <span id="year"></span> GreenBite • Eat well, live well.</p>
+    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  </div>
+</footer>
+<script src="app.js"></script>
+<script src="workout.js"></script>
+</body>
+</html>
