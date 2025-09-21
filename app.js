@@ -1,6 +1,3 @@
-
-// run it
-document.addEventListener('DOMContentLoaded', initRecipeFilters);
 /* Tiny helpers */
 const qs = (s, el=document) => el.querySelector(s);
 const qsa = (s, el=document) => [...el.querySelectorAll(s)];
@@ -41,44 +38,6 @@ on(window,'DOMContentLoaded', () => {
     });
   }
 });
-
-// Recipe filters
-
-function initRecipeFilters() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.grid .card');
-  if (!filterBtns.length || !cards.length) return;
-
-  filterBtns.forEach(btn => {
-    // ensure proper ARIA state
-    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
-
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed','true');
-
-      const filter = btn.dataset.filter.toLowerCase();
-
-      cards.forEach(card => {
-        if (filter === 'all') {
-          card.style.display = '';
-          return;
-        }
-        const badge = card.querySelector('.badge');
-        const badgeText = (badge ? badge.textContent : '').trim().toLowerCase();
-
-        // snacks should include both "snack" and "drink"
-        const match =
-          (filter === 'snacks' && (badgeText.includes('snack') || badgeText.includes('drink'))) ||
-          badgeText.includes(filter);
-
-        card.style.display = match ? '' : 'none';
-      });
-    });
-  });
-}
-
 
 /* Home page features */
 function initHome(){
@@ -312,5 +271,4 @@ if('serviceWorker' in navigator){
 window.addEventListener('DOMContentLoaded', ()=>{
   if(qs('#home-page')) initHome();
   initCalc(); initWorkouts(); initMind(); initContact(); initRecipes();
-  if(qs('body') && qs('body').contains(qs('.recipe-filters'))) initRecipeFilters();
 });
