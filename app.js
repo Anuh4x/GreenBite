@@ -168,7 +168,7 @@ function initWorkouts(){
 
 // Ambient sound player for mindfulness page
 const ambientSounds = {
-  rain: 'GreenBite\Rain.mp3' 
+  rain: 'Rain.mp3' 
 };
 
 let currentAudio = null;
