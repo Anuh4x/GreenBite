@@ -26,10 +26,6 @@
 .filter-btn:hover:not(.active) {
   background: var(--glass-strong);
 }
-main {
-  flex: 1;
-}
-
 :root{
   --shadow:0 8px 30px rgba(0,0,0,.35);
 
